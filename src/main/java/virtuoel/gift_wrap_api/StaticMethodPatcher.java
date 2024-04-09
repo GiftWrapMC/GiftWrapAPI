@@ -6,6 +6,7 @@ import java.net.URLStreamHandlerFactory;
 import java.util.function.BiPredicate;
 
 import org.objectweb.asm.tree.MethodInsnNode;
+import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.loader.impl.filesystem.DelegatingUrlStreamHandlerFactory;
 
 public class StaticMethodPatcher implements BiPredicate<String, MethodInsnNode>
@@ -36,7 +37,43 @@ public class StaticMethodPatcher implements BiPredicate<String, MethodInsnNode>
 			node.name = "hookSetUrlStreamHandlerFactory";
 			return true;
 		}
+		else if ("create".equals(node.name) && BLOCK_TAGS.equals(node.owner.replace('/', '.')))
+		{
+			node.owner = "virtuoel/gift_wrap_api/hooks/BlockTagsHooks";
+			return true;
+		}
+		else if ("getColor".equals(node.name) && DYE_COLOR.equals(node.owner.replace('/', '.')))
+		{
+			node.owner = "virtuoel/gift_wrap_api/hooks/DyeColorHooks";
+			return true;
+		}
+		else if ("create".equals(node.name) && FLUID_TAGS.equals(node.owner.replace('/', '.')))
+		{
+			node.owner = "virtuoel/gift_wrap_api/hooks/FluidTagsHooks";
+			return true;
+		}
+		else if ("builder".equals(node.name) && ITEM_GROUP.equals(node.owner.replace('/', '.')))
+		{
+			node.owner = "virtuoel/gift_wrap_api/hooks/ItemGroupHooks";
+			return true;
+		}
+		else if ("create".equals(node.name) && ITEM_TAGS.equals(node.owner.replace('/', '.')))
+		{
+			node.owner = "virtuoel/gift_wrap_api/hooks/ItemTagsHooks";
+			return true;
+		}
 		
 		return false;
+	}
+	
+	public static final String BLOCK_TAGS = mapClass("net.minecraft.class_3481");
+	public static final String DYE_COLOR = mapClass("net.minecraft.class_1767");
+	public static final String FLUID_TAGS = mapClass("net.minecraft.class_3486");
+	public static final String ITEM_GROUP = mapClass("net.minecraft.class_1761");
+	public static final String ITEM_TAGS = mapClass("net.minecraft.class_3489");
+	
+	private static String mapClass(final String intermediary)
+	{
+		return QuiltLoader.getMappingResolver().mapClassName("intermediary", intermediary);
 	}
 }
