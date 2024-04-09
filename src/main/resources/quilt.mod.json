@@ -1,0 +1,49 @@
+{
+	"schema_version": 1,
+	"quilt_loader":
+	{
+		"group": "virtuoel",
+		"id": "gift_wrap_api",
+		"version": "${version}",
+		"metadata":
+		{
+			"name": "Gift Wrap API",
+			"description": "Various NeoForge APIs as a Quilt mod.",
+			"contributors":
+			{
+				"Virtuoel": "Author"
+			},
+			"contact":
+			{
+				"issues": "https://github.com/GiftWrapMC/GiftWrapAPI/issues",
+				"sources": "https://github.com/GiftWrapMC/GiftWrapAPI"
+			},
+			"license": "LGPL-2.1",
+			"icon": "assets/gift_wrap_api/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"language_adapters":
+		{
+			"gift_wrap_api": "virtuoel.gift_wrap_api.GiftWrapApiLanguageAdapter"
+		}
+	},
+	"mixin":
+	[
+		"gift_wrap_api.mixins.json"
+	],
+	"modmenu":
+	{
+		"badges":
+		[
+			"library"
+		]
+	},
+	"experimental_quilt_loader_plugin":
+	{
+		"class": "virtuoel.gift_wrap_api.GiftWrapApiPlugin",
+		"packages":
+		[
+			"virtuoel.gift_wrap_api"
+		]
+	}
+}
