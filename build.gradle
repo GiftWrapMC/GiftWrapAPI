@@ -110,6 +110,10 @@ dependencies {
 		}
 	}
 	
+	include(implementation("net.jodah:typetools:0.6.3"))
+	include(api("com.electronwill.night-config:core:3.6.6"))
+	include(api("com.electronwill.night-config:toml:3.6.6"))
+	
 	if(project.hasProperty("neoforge_version") && !project.hasProperty("forge_version")) {
 		neoForge "net.neoforged:neoforge:${neoforge_version}"
 	}
