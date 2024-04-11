@@ -1,10 +1,7 @@
 package virtuoel.gift_wrap_api;
 
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 import org.quiltmc.loader.api.LanguageAdapter;
@@ -15,9 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.jodah.typetools.TypeResolver;
-import net.minecraft.registry.Registries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.RegisterEvent;
+import virtuoel.gift_wrap_api.extensions.RegistryFreezeExtensions;
 
 public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 {
@@ -52,7 +49,7 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 						final Constructor<?> constructor = Class.forName(value).getDeclaredConstructors()[0];
 						final Class<?>[] parameterTypes = constructor.getParameterTypes();
 						final Object[] parameters = new Object[parameterTypes.length];
-						
+
 						for (int i = 0; i < parameterTypes.length; i++)
 						{
 							if (parameterTypes[i] == IEventBus.class)
@@ -60,21 +57,15 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 								parameters[i] = bus;
 							}
 						}
-						
+
 						constructor.newInstance(parameters);
-						
-						@SuppressWarnings({ "rawtypes", "unchecked" })
+
+						@SuppressWarnings({"unchecked", "rawtypes"})
 						List<Consumer<RegisterEvent>> registerHandlers = (List<Consumer<RegisterEvent>>) (List) modEvents.computeIfAbsent(RegisterEvent.class, $ -> new ArrayList<>());
-						
+
 						if (!registerHandlers.isEmpty())
 						{
-							Registries.REGISTRIES.forEach(r ->
-							{
-								registerHandlers.forEach(c ->
-								{
-									c.accept(new RegisterEvent(r.getKey(), r));
-								});
-							});
+							RegistryFreezeExtensions.REGISTRARS.addAll(registerHandlers);
 						}
 					}
 					catch (Throwable e)
