@@ -110,7 +110,9 @@ dependencies {
 		}
 	}
 	
-	include(modApi("com.github.GiftWrapMC:GiftWrap:${giftwrap_tag}"))
+	if(project.hasProperty("giftwrap_tag")) {
+		include(modApi("com.github.GiftWrapMC:GiftWrap:${giftwrap_tag}"))
+	}
 	
 	include(implementation("net.jodah:typetools:0.6.3"))
 	include(api("com.electronwill.night-config:core:3.6.6"))
