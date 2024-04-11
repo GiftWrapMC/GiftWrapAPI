@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import net.jodah.typetools.TypeResolver;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.RegisterEvent;
-import virtuoel.gift_wrap_api.extensions.RegistryFreezeExtensions;
+import io.github.giftwrapmc.gift_wrap_api.extensions.RegistryFreezeExtensions;
 
 public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 {

@@ -16,7 +16,7 @@ import com.mojang.serialization.Lifecycle;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleRegistry;
 import net.minecraft.registry.entry.RegistryEntry;
-import virtuoel.gift_wrap_api.extensions.RegistryFreezeExtensions;
+import io.github.giftwrapmc.gift_wrap_api.extensions.RegistryFreezeExtensions;
 
 @Mixin(SimpleRegistry.class)
 public abstract class SimpleRegistryMixin<T> implements RegistryFreezeExtensions<T>

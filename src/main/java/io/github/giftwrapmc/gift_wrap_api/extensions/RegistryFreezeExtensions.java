@@ -1,4 +1,4 @@
-package virtuoel.gift_wrap_api.extensions;
+package io.github.giftwrapmc.gift_wrap_api.extensions;
 
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.registry.Registries;
