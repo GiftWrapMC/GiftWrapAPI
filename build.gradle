@@ -35,7 +35,6 @@ repositories {
 		name = "JitPack"
 		url = "https://jitpack.io"
 		content {
-			includeGroup "com.github.Virtuoel"
 			includeGroup "com.github.GiftWrapMC"
 		}
 	}
@@ -111,7 +110,9 @@ dependencies {
 		}
 	}
 	
-	include(modApi("com.github.GiftWrapMC:GiftWrap:${giftwrap_tag}"))
+	if(project.hasProperty("giftwrap_tag")) {
+		include(modApi("com.github.GiftWrapMC:GiftWrap:${giftwrap_tag}"))
+	}
 	
 	include(implementation("net.jodah:typetools:0.6.3"))
 	include(api("com.electronwill.night-config:core:3.6.6"))

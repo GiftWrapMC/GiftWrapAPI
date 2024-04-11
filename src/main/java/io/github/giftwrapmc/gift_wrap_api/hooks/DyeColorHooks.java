@@ -1,11 +1,11 @@
-package virtuoel.gift_wrap_api.hooks;
+package io.github.giftwrapmc.gift_wrap_api.hooks;
 
 import org.jetbrains.annotations.Nullable;
 
+import io.github.giftwrapmc.gift_wrap_api.extensions.GiftWrapDyeColorExtensions;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DyeColor;
-import virtuoel.gift_wrap_api.extensions.GiftWrapDyeColorExtensions;
 
 public class DyeColorHooks
 {
