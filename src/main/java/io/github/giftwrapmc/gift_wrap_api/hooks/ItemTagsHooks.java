@@ -1,4 +1,4 @@
-package virtuoel.gift_wrap_api.hooks;
+package io.github.giftwrapmc.gift_wrap_api.hooks;
 
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;

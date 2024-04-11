@@ -1,4 +1,4 @@
-package virtuoel.gift_wrap_api;
+package io.github.giftwrapmc.gift_wrap_api;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;

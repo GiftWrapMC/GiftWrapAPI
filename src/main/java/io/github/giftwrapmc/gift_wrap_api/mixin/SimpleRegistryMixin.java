@@ -1,4 +1,4 @@
-package virtuoel.gift_wrap_api.mixin;
+package io.github.giftwrapmc.gift_wrap_api.mixin;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package virtuoel.gift_wrap_api;
+package io.github.giftwrapmc.gift_wrap_api;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -33,33 +33,33 @@ public class StaticMethodPatcher implements BiPredicate<String, MethodInsnNode>
 	{
 		if ("setURLStreamHandlerFactory".equals(node.name) && URL.class.getName().equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/StaticMethodPatcher";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/StaticMethodPatcher";
 			node.name = "hookSetUrlStreamHandlerFactory";
 			return true;
 		}
 		else if ("create".equals(node.name) && BLOCK_TAGS.equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/hooks/BlockTagsHooks";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/hooks/BlockTagsHooks";
 			return true;
 		}
 		else if ("getColor".equals(node.name) && DYE_COLOR.equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/hooks/DyeColorHooks";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/hooks/DyeColorHooks";
 			return true;
 		}
 		else if ("create".equals(node.name) && FLUID_TAGS.equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/hooks/FluidTagsHooks";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/hooks/FluidTagsHooks";
 			return true;
 		}
 		else if ("builder".equals(node.name) && ITEM_GROUP.equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/hooks/ItemGroupHooks";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/hooks/ItemGroupHooks";
 			return true;
 		}
 		else if ("create".equals(node.name) && ITEM_TAGS.equals(node.owner.replace('/', '.')))
 		{
-			node.owner = "virtuoel/gift_wrap_api/hooks/ItemTagsHooks";
+			node.owner = "io/github/giftwrapmc/gift_wrap_api/hooks/ItemTagsHooks";
 			return true;
 		}
 		

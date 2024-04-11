@@ -2,7 +2,7 @@
 	"schema_version": 1,
 	"quilt_loader":
 	{
-		"group": "virtuoel",
+		"group": "io.github.giftwrapmc",
 		"id": "gift_wrap_api",
 		"version": "${version}",
 		"metadata":
@@ -24,7 +24,7 @@
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"language_adapters":
 		{
-			"gift_wrap_api": "virtuoel.gift_wrap_api.GiftWrapApiLanguageAdapter"
+			"gift_wrap_api": "io.github.giftwrapmc.gift_wrap_api.GiftWrapApiLanguageAdapter"
 		}
 	},
 	"mixin":
@@ -40,10 +40,10 @@
 	},
 	"experimental_quilt_loader_plugin":
 	{
-		"class": "virtuoel.gift_wrap_api.GiftWrapApiPlugin",
+		"class": "io.github.giftwrapmc.gift_wrap_api.GiftWrapApiPlugin",
 		"packages":
 		[
-			"virtuoel.gift_wrap_api"
+			"io.github.giftwrapmc.gift_wrap_api"
 		]
 	}
 }

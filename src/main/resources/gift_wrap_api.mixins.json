@@ -1,7 +1,7 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "virtuoel.gift_wrap_api.mixin",
+	"package": "io.github.giftwrapmc.gift_wrap_api.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins":
 	[
