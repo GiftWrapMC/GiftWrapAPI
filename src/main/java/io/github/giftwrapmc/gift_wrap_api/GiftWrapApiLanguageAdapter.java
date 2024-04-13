@@ -41,8 +41,7 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 				}
 			});
 			
-			@SuppressWarnings("unchecked")
-			T t = (T) new ModInitializer()
+			ModInitializer initializer = new ModInitializer()
 			{
 				@Override
 				public void onInitialize(ModContainer mod)
@@ -63,8 +62,8 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 						
 						constructor.newInstance(parameters);
 						
-						@SuppressWarnings({ "rawtypes", "unchecked" })
-						List<Consumer<RegisterEvent>> registerHandlers = (List<Consumer<RegisterEvent>>) (List) modEvents.computeIfAbsent(RegisterEvent.class, $ -> new ArrayList<>());
+						@SuppressWarnings("unchecked")
+						List<Consumer<RegisterEvent>> registerHandlers = (List<Consumer<RegisterEvent>>) (List<?>) modEvents.computeIfAbsent(RegisterEvent.class, $ -> new ArrayList<>());
 						
 						if (!registerHandlers.isEmpty())
 						{
@@ -83,7 +82,11 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 					}
 				}
 			};
-			return t;
+			
+			@SuppressWarnings("unchecked")
+			final T cast = (T) initializer;
+			
+			return cast;
 		}
 		
 		throw new LanguageAdapterException("Failed to create entrypoint for type " + type);

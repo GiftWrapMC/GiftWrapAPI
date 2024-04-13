@@ -74,6 +74,8 @@ public class StaticMethodPatcher implements BiPredicate<String, MethodInsnNode>
 	
 	private static String mapClass(final String intermediary)
 	{
-		return QuiltLoader.getMappingResolver().mapClassName("intermediary", intermediary);
+		final String mapped = QuiltLoader.getMappingResolver().mapClassName("intermediary", intermediary);
+		
+		return mapped;
 	}
 }
