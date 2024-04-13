@@ -110,7 +110,10 @@ dependencies {
 		}
 	}
 	
-	if(project.hasProperty("giftwrap_tag")) {
+	if(project.hasProperty("giftwrap_version")) {
+		include(modApi("io.github.giftwrapmc:GiftWrap:${giftwrap_version}"))
+	}
+	else if(project.hasProperty("giftwrap_tag")) {
 		include(modApi("com.github.GiftWrapMC:GiftWrap:${giftwrap_tag}"))
 	}
 	
