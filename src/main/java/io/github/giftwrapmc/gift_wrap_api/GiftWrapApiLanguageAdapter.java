@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import net.jodah.typetools.TypeResolver;
 import net.minecraft.registry.Registries;
+import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
@@ -34,7 +35,7 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 			IEventBus bus = MOD_BUSSES.computeIfAbsent(mod.metadata().id(), $ -> new IEventBus()
 			{
 				@Override
-				public <E> void addListener(Consumer<E> eventHandler)
+				public <E extends Event> void addListener(Consumer<E> eventHandler)
 				{
 					Class<?> clazz = TypeResolver.resolveRawArgument(Consumer.class, eventHandler.getClass());
 					modEvents.computeIfAbsent(clazz, $ -> new ArrayList<>()).add(eventHandler);

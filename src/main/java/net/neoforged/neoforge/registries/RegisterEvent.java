@@ -8,8 +8,9 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.neoforged.bus.api.Event;
 
-public class RegisterEvent
+public class RegisterEvent extends Event
 {
 	final RegistryKey<? extends Registry<?>> registryKey;
 	final Registry<?> registry;
