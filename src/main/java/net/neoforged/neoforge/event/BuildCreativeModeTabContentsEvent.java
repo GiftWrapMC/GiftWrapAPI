@@ -1,6 +1,8 @@
 package net.neoforged.neoforge.event;
 
-public class BuildCreativeModeTabContentsEvent
+import net.neoforged.bus.api.Event;
+
+public class BuildCreativeModeTabContentsEvent extends Event
 {
 	
 }

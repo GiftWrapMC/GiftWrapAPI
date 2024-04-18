@@ -1,8 +1,9 @@
 package net.neoforged.neoforge.client.event;
 
 import net.minecraft.client.gui.screen.Screen;
+import net.neoforged.bus.api.Event;
 
-public class ScreenEvent
+public class ScreenEvent extends Event
 {
 	private final Screen screen;
 	
