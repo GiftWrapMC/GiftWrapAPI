@@ -37,8 +37,8 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 					modEvents.computeIfAbsent(clazz, $ -> new ArrayList<>()).add(eventHandler);
 				}
 			});
-			
-			@SuppressWarnings("unchecked")
+
+			@SuppressWarnings({"unchecked", "Convert2Lambda"})
 			T t = (T) new ModInitializer()
 			{
 				@Override
