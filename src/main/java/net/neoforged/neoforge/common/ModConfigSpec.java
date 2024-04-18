@@ -28,6 +28,11 @@ public class ModConfigSpec
 		{
 			return new IntValue(() -> defaultValue);
 		}
+		
+		public BooleanValue define(String path, boolean defaultValue)
+		{
+			return new BooleanValue(() -> defaultValue);
+		}
 	}
 	
 	public static class ConfigValue<T> implements Supplier<T>
@@ -44,12 +49,19 @@ public class ModConfigSpec
 		{
 			return defaultSupplier.get();
 		}
-		
 	}
 	
 	public static class IntValue extends ConfigValue<Integer>
 	{
 		IntValue(Supplier<Integer> defaultSupplier)
+		{
+			super(defaultSupplier);
+		}
+	}
+	
+	public static class BooleanValue extends ConfigValue<Boolean>
+	{
+		BooleanValue(Supplier<Boolean> defaultSupplier)
 		{
 			super(defaultSupplier);
 		}
