@@ -3,6 +3,7 @@ package net.neoforged.neoforge.registries;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.registry.Registry;
@@ -13,22 +14,22 @@ public class RegisterEvent
 {
 	final RegistryKey<? extends Registry<?>> registryKey;
 	final Registry<?> registry;
-	
+
 	public RegisterEvent(final RegistryKey<? extends Registry<?>> registryKey, final Registry<?> registry)
 	{
 		this.registryKey = registryKey;
 		this.registry = registry;
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <T> void register(RegistryKey<? extends Registry<T>> registryKey, Identifier name, Supplier<T> valueSupplier)
 	{
 		if (this.registryKey.equals(registryKey))
 		{
-			Registry.register((Registry) this.registry, name, valueSupplier.get());
+			NeoRegistry.register((Registry) this.registry, name, valueSupplier.get());
 		}
 	}
-	
+
 	/**
 	 * Calls the provided consumer with a register helper if the provided
 	 * registry key matches this event's registry key.
@@ -45,10 +46,10 @@ public class RegisterEvent
 	{
 		if (this.registryKey.equals(registryKey))
 		{
-			consumer.accept((name, value) -> Registry.register((Registry) this.registry, name, value));
+			consumer.accept((name, value) -> NeoRegistry.register((Registry) this.registry, name, value));
 		}
 	}
-	
+
 	/**
 	 * @return The registry key linked to this event
 	 */
@@ -56,7 +57,7 @@ public class RegisterEvent
 	{
 		return this.registryKey;
 	}
-	
+
 	/**
 	 * @return The registry linked to this event
 	 */
@@ -64,7 +65,7 @@ public class RegisterEvent
 	{
 		return this.registry;
 	}
-	
+
 	/**
 	 * @param key
 	 *            the registry key to compare again {@link #getRegistryKey()}
@@ -77,7 +78,7 @@ public class RegisterEvent
 	{
 		return key == this.registryKey ? (Registry<T>) this.registry : null;
 	}
-	
+
 	@FunctionalInterface
 	public interface RegisterHelper<T>
 	{
@@ -86,7 +87,7 @@ public class RegisterEvent
 		{
 			throw new UnsupportedOperationException();
 		}
-		
+
 		/**
 		 * Registers the given value with the given name to the registry.
 		 *
@@ -99,7 +100,7 @@ public class RegisterEvent
 		{
 			register(key.getRegistry(), value);
 		}
-		
+
 		/**
 		 * Registers the given value with the given name to the registry.
 		 *

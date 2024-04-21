@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.function.Consumer;
 
+import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistries;
 import org.quiltmc.loader.api.LanguageAdapter;
 import org.quiltmc.loader.api.LanguageAdapterException;
 import org.quiltmc.loader.api.ModContainer;
@@ -65,7 +66,7 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 
 						if (!registerHandlers.isEmpty())
 						{
-							RegistryFreezeExtensions.REGISTRARS.addAll(registerHandlers);
+							NeoRegistries.QUEUED_CONTENT.addAll(registerHandlers);
 						}
 					}
 					catch (Throwable e)

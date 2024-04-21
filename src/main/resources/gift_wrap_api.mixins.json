@@ -3,20 +3,23 @@
 	"minVersion": "0.8",
 	"package": "io.github.giftwrapmc.gift_wrap_api.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins":
-	[
+	"mixins": [
+		"DelayedRegistryMixin",
 		"DyeColorMixin",
 		"ItemGroupBuilderMixin",
 		"ItemGroupsMixin",
+		"RegistriesMixin",
 		"RegistryEntryReferenceInvoker",
 		"SimpleRegistryMixin"
 	],
-	"injectors":
-	{
+	"injectors": {
 		"defaultRequire": 1
 	},
-	"overwrites":
-	{
+	"overwrites": {
 		"requireAnnotations": true
-	}
+	},
+	"client": [
+		"MainMixin",
+		"MinecraftClientMixin"
+	]
 }

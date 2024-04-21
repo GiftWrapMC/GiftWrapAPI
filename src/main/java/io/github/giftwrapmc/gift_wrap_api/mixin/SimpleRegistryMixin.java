@@ -39,6 +39,9 @@ public abstract class SimpleRegistryMixin<T> implements RegistryFreezeExtensions
 	@Shadow
 	public abstract RegistryEntry.Reference<T> createEntry(T value);
 
+	@Shadow
+	private int nextId;
+
 	@Inject(method = "set", at = @At(value = "RETURN"))
 	private void gift_wrap$set(int rawId, RegistryKey<T> key, T value, Lifecycle lifecycle, CallbackInfoReturnable<RegistryEntry.Reference<T>> info)
 	{
@@ -56,6 +59,11 @@ public abstract class SimpleRegistryMixin<T> implements RegistryFreezeExtensions
 	public Registry<T> partiallyFreeze() {
 		this.frozen = true;
 		return (Registry<T>) this;
+	}
+
+	@Override
+	public RegistryEntry.Reference<T> neoAdd(RegistryKey<T> key, T entry, Lifecycle lifecycle) {
+		return this.neoSet(this.nextId, key, entry, lifecycle);
 	}
 
 	@Override
