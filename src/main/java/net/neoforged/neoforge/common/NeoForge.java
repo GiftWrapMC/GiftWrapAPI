@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import net.jodah.typetools.TypeResolver;
+import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.IEventBus;
 
 public class NeoForge
@@ -16,7 +17,7 @@ public class NeoForge
 	public static final IEventBus EVENT_BUS = new IEventBus()
 	{
 		@Override
-		public <E> void addListener(Consumer<E> eventHandler)
+		public <T extends Event> void addListener(Consumer<T> eventHandler)
 		{
 			Class<?> clazz = TypeResolver.resolveRawArgument(Consumer.class, eventHandler.getClass());
 			EVENTS.computeIfAbsent(clazz, $ -> new ArrayList<>()).add(eventHandler);

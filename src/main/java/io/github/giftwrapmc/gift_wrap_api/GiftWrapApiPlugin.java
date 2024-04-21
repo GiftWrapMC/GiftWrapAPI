@@ -18,9 +18,18 @@ public class GiftWrapApiPlugin implements QuiltLoaderPlugin
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	
-	@Override
-	public void load(QuiltPluginContext context, Map<String, LoaderValue> previousData)
+	private QuiltPluginContext context;
+	
+	public QuiltPluginContext context()
 	{
+		return context;
+	}
+	
+	@Override
+	public void load(final QuiltPluginContext context, final Map<String, LoaderValue> previousData)
+	{
+		this.context = context;
+		
 		QuiltLoader.getObjectShare().whenAvailable("gift_wrap:method_insn_patches", (key, value) ->
 		{
 			@SuppressWarnings("unchecked")
@@ -32,7 +41,7 @@ public class GiftWrapApiPlugin implements QuiltLoaderPlugin
 	}
 	
 	@Override
-	public void unload(Map<String, LoaderValue> data)
+	public void unload(final Map<String, LoaderValue> data)
 	{
 		
 	}
