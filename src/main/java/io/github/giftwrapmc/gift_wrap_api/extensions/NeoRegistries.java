@@ -21,10 +21,12 @@ public class NeoRegistries {
 	}
 
 	public static void acceptQueuedContent() {
-		for (Registry<?> registry : Registries.REGISTRIES) {
-			NeoRegistries.QUEUED_CONTENT.forEach(consumer -> {
-				consumer.accept(new RegisterEvent(registry.getKey(), registry));
-			});
+		if (!NeoRegistries.QUEUED_CONTENT.isEmpty()) {
+			for (Registry<?> registry : Registries.REGISTRIES) {
+				NeoRegistries.QUEUED_CONTENT.forEach(consumer -> {
+					consumer.accept(new RegisterEvent(registry.getKey(), registry));
+				});
+			}
 		}
 	}
 

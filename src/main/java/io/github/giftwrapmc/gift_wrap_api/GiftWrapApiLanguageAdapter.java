@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.function.Consumer;
 
 import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistries;
+import net.neoforged.bus.api.Event;
 import org.quiltmc.loader.api.LanguageAdapter;
 import org.quiltmc.loader.api.LanguageAdapterException;
 import org.quiltmc.loader.api.ModContainer;
@@ -21,18 +22,18 @@ public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 {
 	public static final Logger LOGGER = LoggerFactory.getLogger("gift_wrap_api");
 	public static final Map<String, IEventBus> MOD_BUSSES = new HashMap<>();
-	
+
 	@Override
 	public <T> T create(ModContainer mod, String value, Class<T> type) throws LanguageAdapterException
 	{
 		if (type == ModInitializer.class)
 		{
 			Map<Class<?>, List<Consumer<?>>> modEvents = new HashMap<>();
-			
+
 			IEventBus bus = MOD_BUSSES.computeIfAbsent(mod.metadata().id(), $ -> new IEventBus()
 			{
 				@Override
-				public <E> void addListener(Consumer<E> eventHandler)
+				public <E extends Event> void addListener(Consumer<E> eventHandler)
 				{
 					Class<?> clazz = TypeResolver.resolveRawArgument(Consumer.class, eventHandler.getClass());
 					modEvents.computeIfAbsent(clazz, $ -> new ArrayList<>()).add(eventHandler);
