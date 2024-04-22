@@ -22,6 +22,7 @@
 			"icon": "assets/gift_wrap_api/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
+		"load_type": "always",
 		"language_adapters":
 		{
 			"gift_wrap_api": "io.github.giftwrapmc.gift_wrap_api.GiftWrapApiLanguageAdapter"
