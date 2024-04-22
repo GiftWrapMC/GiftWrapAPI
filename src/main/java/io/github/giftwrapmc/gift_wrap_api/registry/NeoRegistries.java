@@ -32,6 +32,7 @@ public class NeoRegistries {
 	}
 
 	public static void fullyFreezeRegistries() {
+		((RegistryFreezeExtensions<?>) Registries.REGISTRIES).statesAsUnfrozen();
 		Registries.REGISTRIES.freeze();
 
 		for(Registry<?> registry : Registries.REGISTRIES) {
