@@ -7,6 +7,7 @@
 		"DyeColorMixin",
 		"ItemGroupBuilderMixin",
 		"ItemGroupsMixin",
+		"MainMixin",
 		"RegistriesMixin",
 		"SimpleRegistryMixin"
 	],
@@ -17,7 +18,6 @@
 		"requireAnnotations": true
 	},
 	"client": [
-		"MainMixin",
 		"MinecraftClientMixin"
 	]
 }
