@@ -1,6 +1,6 @@
 package io.github.giftwrapmc.gift_wrap_api.mixin;
 
-import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistries;
+import io.github.giftwrapmc.gift_wrap_api.registry.NeoRegistries;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.RunArgs;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,5 +1,6 @@
-package io.github.giftwrapmc.gift_wrap_api.extensions;
+package io.github.giftwrapmc.gift_wrap_api.registry;
 
+import io.github.giftwrapmc.gift_wrap_api.extensions.RegistryFreezeExtensions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.neoforged.neoforge.registries.RegisterEvent;

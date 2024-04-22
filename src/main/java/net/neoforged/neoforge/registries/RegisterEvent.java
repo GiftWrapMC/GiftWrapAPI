@@ -3,7 +3,7 @@ package net.neoforged.neoforge.registries;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistry;
+import io.github.giftwrapmc.gift_wrap_api.registry.NeoRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.registry.Registry;

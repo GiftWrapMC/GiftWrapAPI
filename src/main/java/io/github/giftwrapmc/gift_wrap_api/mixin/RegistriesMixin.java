@@ -2,7 +2,7 @@ package io.github.giftwrapmc.gift_wrap_api.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistries;
+import io.github.giftwrapmc.gift_wrap_api.registry.NeoRegistries;
 import net.minecraft.registry.Registries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

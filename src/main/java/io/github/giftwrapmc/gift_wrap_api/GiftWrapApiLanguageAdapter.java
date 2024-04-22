@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.function.Consumer;
 
-import io.github.giftwrapmc.gift_wrap_api.extensions.NeoRegistries;
+import io.github.giftwrapmc.gift_wrap_api.registry.NeoRegistries;
 import net.neoforged.bus.api.Event;
 import org.quiltmc.loader.api.LanguageAdapter;
 import org.quiltmc.loader.api.LanguageAdapterException;
@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import net.jodah.typetools.TypeResolver;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.RegisterEvent;
-import io.github.giftwrapmc.gift_wrap_api.extensions.RegistryFreezeExtensions;
 
 public class GiftWrapApiLanguageAdapter implements LanguageAdapter
 {
