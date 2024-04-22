@@ -7,9 +7,6 @@ import net.minecraft.registry.RegistryEntryLookup;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.mojang.serialization.Lifecycle;
 
@@ -42,16 +39,9 @@ public abstract class SimpleRegistryMixin<T> implements RegistryFreezeExtensions
 	@Shadow
 	private int nextId;
 
-	@Inject(method = "set", at = @At(value = "RETURN"))
-	private void gift_wrap$set(int rawId, RegistryKey<T> key, T value, Lifecycle lifecycle, CallbackInfoReturnable<RegistryEntry.Reference<T>> info)
-	{
-		if (this.intrusiveValueToEntry == null)
-		{
-			@SuppressWarnings("unchecked")
-			final RegistryEntryReferenceInvoker<T> ref = ((RegistryEntryReferenceInvoker<T>) info.getReturnValue());
-			
-			ref.callSetValue(value);
-		}
+	@Override
+	public void statesAsUnfrozen() {
+		this.frozen = false;
 	}
 
 	@Override

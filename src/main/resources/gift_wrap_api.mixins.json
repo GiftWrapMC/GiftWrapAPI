@@ -8,7 +8,6 @@
 		"ItemGroupBuilderMixin",
 		"ItemGroupsMixin",
 		"RegistriesMixin",
-		"RegistryEntryReferenceInvoker",
 		"SimpleRegistryMixin"
 	],
 	"injectors": {

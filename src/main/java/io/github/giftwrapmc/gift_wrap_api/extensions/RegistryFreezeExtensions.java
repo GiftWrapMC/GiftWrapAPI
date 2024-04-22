@@ -8,6 +8,8 @@ import net.minecraft.registry.entry.RegistryEntry;
 
 public interface RegistryFreezeExtensions<T> {
 
+	void statesAsUnfrozen();
+
 	Registry<T> partiallyFreeze();
 
 	RegistryEntry.Reference<T> neoAdd(RegistryKey<T> key, T entry, Lifecycle lifecycle);
